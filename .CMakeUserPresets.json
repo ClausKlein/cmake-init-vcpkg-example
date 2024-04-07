@@ -10,12 +10,16 @@
       "name": "dev",
       "generator": "Ninja",
       "binaryDir": "${sourceDir}/build/dev",
-      "inherits": ["dev-mode", "vcpkg", "ci-Darwin"],
+      "inherits": [
+        "dev-mode",
+        "vcpkg",
+        "ci-Darwin"
+      ],
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug"
       },
       "environment": {
-          "VCPKG_ROOT": "$env{HOME}/vcpkg"
+        "VCPKG_ROOT": "$env{HOME}/vcpkg"
       }
     }
   ],
@@ -37,4 +41,3 @@
     }
   ]
 }
-

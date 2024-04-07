@@ -12,6 +12,7 @@ default(
     source/*.cpp source/*.hpp
     include/*.hpp
     test/*.cpp test/*.hpp
+    *.json
 )
 default(FIX NO)
 
