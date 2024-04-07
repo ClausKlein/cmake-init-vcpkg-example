@@ -1,8 +1,8 @@
 {
-  "version": 2,
+  "version": 3,
   "cmakeMinimumRequired": {
     "major": 3,
-    "minor": 14,
+    "minor": 21,
     "patch": 0
   },
   "configurePresets": [
@@ -144,12 +144,24 @@
       "inherits": ["ci-build", "ci-darwin", "dev-mode", "vcpkg"]
     },
     {
+      "name": "ci-Darwin",
+      "inherits": "ci-macos"
+    },
+    {
       "name": "ci-ubuntu",
       "inherits": ["ci-build", "ci-linux", "clang-tidy", "vcpkg", "cppcheck", "dev-mode"]
     },
     {
+      "name": "ci-Linux",
+      "inherits": "ci-ubuntu"
+    },
+    {
       "name": "ci-windows",
       "inherits": ["ci-build", "ci-win64", "dev-mode", "vcpkg", "vcpkg-win64-static"]
+    },
+    {
+      "name": "ci-Windows",
+      "inherits": "ci-windows"
     }
   ]
 }

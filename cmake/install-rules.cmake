@@ -4,5 +4,6 @@ install(
 )
 
 if(PROJECT_IS_TOP_LEVEL)
+  set(CPACK_GENERATOR TGZ)
   include(CPack)
 endif()
