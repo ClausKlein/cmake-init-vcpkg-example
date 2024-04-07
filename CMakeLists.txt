@@ -10,7 +10,6 @@ project(
     LANGUAGES CXX
 )
 
-include(cmake/project-is-top-level.cmake)
 include(cmake/variables.cmake)
 
 # ---- Declare library ----
@@ -18,6 +17,7 @@ include(cmake/variables.cmake)
 add_library(
     vcpkg-example_lib OBJECT
     source/lib.cpp
+    source/lib.hpp
 )
 
 target_include_directories(
