@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.21...3.29)
+cmake_minimum_required(VERSION 3.21...4.1)
 
 include(cmake/prelude.cmake)
 
@@ -29,7 +29,8 @@ target_include_directories(
 target_compile_features(vcpkg-example_lib PUBLIC cxx_std_17)
 
 find_package(fmt REQUIRED)
-target_link_libraries(vcpkg-example_lib PRIVATE fmt::fmt)
+find_package(unofficial-libuuid REQUIRED)
+target_link_libraries(vcpkg-example_lib PRIVATE fmt::fmt unofficial::UUID::uuid)
 
 # ---- Declare executable ----
 

@@ -96,6 +96,10 @@ to inherit from the `vcpkg-win64-static` preset, which will make vcpkg install
 the dependencies as static libraries. This is only necessary if you don't want
 to setup `PATH` to run tests.
 
+You may manually install the dependencies if needed with:
+
+    ~/vcpkg/vcpkg install --allow-unsupported
+
 [vcpkg]: https://github.com/microsoft/vcpkg
 
 ### Configure, build and test

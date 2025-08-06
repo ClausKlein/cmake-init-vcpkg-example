@@ -4,7 +4,11 @@
   "dependencies": [
     {
       "name": "fmt",
-      "version>=": "10.2.1#1"
+      "version>=": "11.0.2#1"
+    },
+    {
+      "name": "libuuid",
+      "version>=": "1.0.3#14"
     }
   ],
   "default-features": [],
@@ -14,7 +18,7 @@
       "dependencies": [
         {
           "name": "catch2",
-          "version>=": "3.5.3"
+          "version>=": "3.8.1"
         }
       ]
     }
