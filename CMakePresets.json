@@ -178,7 +178,6 @@
         "ci-linux",
         "clang-tidy",
         "vcpkg",
-        "cppcheck",
         "dev-mode"
       ]
     },
