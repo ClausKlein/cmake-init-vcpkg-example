@@ -4,7 +4,7 @@
 #include "lib.hpp"
 
 #include <fmt/core.h>
-#include <uuid/uuid.h>
+#include <linux/uuid.h>
 
 constexpr size_t UUID_LEN {sizeof(uuid_t)};
 std::array<uint8_t, UUID_LEN> make_uuid()

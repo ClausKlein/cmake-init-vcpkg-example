@@ -2,13 +2,10 @@
   "name": "vcpkg-example",
   "version-semver": "0.1.0",
   "dependencies": [
+    "libuuid",
     {
       "name": "fmt",
-      "version>=": "11.0.2#1"
-    },
-    {
-      "name": "libuuid",
-      "version>=": "1.0.3#14"
+      "version>=": "11.2.0"
     }
   ],
   "default-features": [],
@@ -18,10 +15,10 @@
       "dependencies": [
         {
           "name": "catch2",
-          "version>=": "3.8.1"
+          "version>=": "3.9.0"
         }
       ]
     }
   },
-  "builtin-baseline": "46e4c4c78c347ded6add526b0c2bb66db35d4710"
+  "builtin-baseline": "70a7abe262134f51393f02966e80789a2305ce6f"
 }
