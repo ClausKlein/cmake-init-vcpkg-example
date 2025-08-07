@@ -25,8 +25,10 @@ jobs:
 
     - name: Install codespell
       run: pip3 install codespell cmake ninja clang-tidy clang-format
+        && which clang-format
 
     - name: Lint
+      if: github.repository_owner == 'friendlyanon'
       run: cmake -D FORMAT_COMMAND=clang-format -P cmake/lint.cmake
 
     - name: Spell check
