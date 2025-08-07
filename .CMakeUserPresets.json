@@ -13,6 +13,7 @@
       "inherits": [
         "dev-mode",
         "vcpkg",
+        "clang-tidy",
         "ci-Darwin"
       ],
       "cacheVariables": {
@@ -38,6 +39,35 @@
       "output": {
         "outputOnFailure": true
       }
+    }
+  ],
+  "packagePresets": [
+    {
+      "name": "dev",
+      "configurePreset": "dev"
+    }
+  ],
+  "workflowPresets": [
+    {
+      "name": "dev",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "dev"
+        },
+        {
+          "type": "build",
+          "name": "dev"
+        },
+        {
+          "type": "test",
+          "name": "dev"
+        },
+        {
+          "type": "package",
+          "name": "dev"
+        }
+      ]
     }
   ]
 }
