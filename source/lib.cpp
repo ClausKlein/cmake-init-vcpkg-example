@@ -1,42 +1,24 @@
-#include <array>
-#include <cstddef>
-#include <cstdint>
-
 #include "lib.hpp"
 
-#include <fmt/base.h>
 #include <fmt/format.h>
-#include <uuid/uuid.h>
+#include <boost/uuid/uuid.hpp>
+#include <boost/uuid/uuid_generators.hpp>
+#include <boost/uuid/uuid_io.hpp> // for to_string
 
 namespace
 {
 
-constexpr size_t UUID_LEN {sizeof(uuid_t)};
-std::array<uint8_t, UUID_LEN> make_uuid()
+boost::uuids::uuid make_uuid()
 {
-  std::array<uint8_t, UUID_LEN> uuid {};
-  uuid_generate(uuid.data());
-  return uuid;
+    static boost::uuids::random_generator gen{};
+    return gen();
 }
 
-}  // namespace
+} // namespace
 
 library::library()
-    : name {fmt::format("{}", "vcpkg-example")}
+    : name{ fmt::format("{}", "vcpkg-example") }
 {
-  auto result = make_uuid();
-
-#define USE_UUID_PARSE
-#ifndef USE_UUID_PARSE
-  for (uint8_t byte : result) {
-    fmt::print("{:02x}", byte);
-  }
-  fmt::print("\n");
-  // 21950b2713b04824af5938b0037c2731
-#else
-  std::array<char, (2 * UUID_LEN) + sizeof("----")> uuid_str {};  // 37
-  uuid_unparse(result.data(), uuid_str.data());
-  fmt::print("{}\n", uuid_str.data());
-  // cbb96c92-f9b0-4ab1-ae95-0799dae04bee
-#endif
+    const auto uuid = make_uuid();
+    fmt::print("{}\n", boost::uuids::to_string(uuid));
 }

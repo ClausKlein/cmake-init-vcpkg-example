@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.21...3.29)
+cmake_minimum_required(VERSION 3.21...4.1)
 
 include(cmake/prelude.cmake)
 
@@ -29,8 +29,10 @@ target_include_directories(
 target_compile_features(vcpkg-example_lib PUBLIC cxx_std_17)
 
 find_package(fmt REQUIRED)
-find_package(unofficial-libuuid REQUIRED)
-target_link_libraries(vcpkg-example_lib PRIVATE fmt::fmt unofficial::UUID::uuid)
+find_package(Boost REQUIRED COMPONENTS uuid)
+target_link_libraries(vcpkg-example_lib PRIVATE Boost::uuid fmt::fmt)
+
+target_link_libraries(vcpkg-example_lib PRIVATE fmt::fmt Boost::headers)
 
 # ---- Declare executable ----
 
@@ -38,9 +40,6 @@ add_executable(vcpkg-example_exe source/main.cpp)
 add_executable(vcpkg-example::exe ALIAS vcpkg-example_exe)
 
 set_property(TARGET vcpkg-example_exe PROPERTY OUTPUT_NAME vcpkg-example)
-
-target_compile_features(vcpkg-example_exe PRIVATE cxx_std_17)
-
 target_link_libraries(vcpkg-example_exe PRIVATE vcpkg-example_lib)
 
 # ---- Install rules ----
