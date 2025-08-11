@@ -32,8 +32,6 @@ find_package(fmt REQUIRED)
 find_package(Boost REQUIRED COMPONENTS uuid)
 target_link_libraries(vcpkg-example_lib PRIVATE Boost::uuid fmt::fmt)
 
-target_link_libraries(vcpkg-example_lib PRIVATE fmt::fmt Boost::headers)
-
 # ---- Declare executable ----
 
 add_executable(vcpkg-example_exe source/main.cpp)
